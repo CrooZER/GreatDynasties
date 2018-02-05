@@ -1,0 +1,2 @@
+# GreatDynasties
+Custom dynasty league
