@@ -19,5 +19,5 @@ for (var i=0; i<NFL_PLAYER_DATA.players.length; i++){
 	if (p.rt){MAP_RT_FP['nfl'][String(p.rt)] = p.fp}
 	if (p.ff){MAP_FLEA_FP['nfl'][String(p.ff)] = p.fp}
 }
-);
+});
   
