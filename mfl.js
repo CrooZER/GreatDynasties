@@ -40,7 +40,8 @@ jQuery("a").each(function(index){
 
     jQuery.ajax({
         url : "http://206.189.127.27/api/bets/?format=json",
-         dataType: "jsonp"
+         dataType: "jsonp",
+        async: true
     }).done( function (data) {
         console.log(data);
             data.each(function(item){
