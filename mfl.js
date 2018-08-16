@@ -38,5 +38,11 @@ jQuery("a").each(function(index){
 	    	}
 	    });
 
+    jQuery.ajax({
+        url : "http://206.189.127.27/api/bets/?format=json"
+    }).done( function (data) {
+            console.log(data);
+        });
+
 });
   
