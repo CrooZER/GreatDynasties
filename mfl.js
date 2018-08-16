@@ -37,7 +37,12 @@ jQuery("a").each(function(index){
 		    	} 
 	    	}
 	    });
+showBets();
 
+});
+  
+function showBets(){
+console.log('showing bets');
     jQuery.ajax({
         url : "http://206.189.127.27/api/bets/?format=json",
          dataType: "jsonp",
@@ -49,6 +54,4 @@ jQuery("a").each(function(index){
                 jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
             });
         });
-
-});
-  
+}
