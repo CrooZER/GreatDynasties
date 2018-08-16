@@ -42,6 +42,7 @@ jQuery("a").each(function(index){
         url : "http://206.189.127.27/api/bets/?format=json",
          dataType: "jsonp"
     }).done( function (data) {
+        console.log(data);
             data.each(function(item){
                 console.log(item);
                 jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
