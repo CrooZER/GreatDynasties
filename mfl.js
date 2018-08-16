@@ -50,7 +50,14 @@ console.log('showing bets');
     jQuery.ajax({
         url : "http://206.189.127.27/api/bets/?format=json",
          dataType: "jsonp",
-        async: true
+        async: true,
+        success : function (data) {
+        console.log(data, 'success');
+            data.each(function(item){
+                console.log(item);
+                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
+            });
+        }
     }).done( function (data) {
         console.log(data);
             data.each(function(item){
@@ -58,4 +65,4 @@ console.log('showing bets');
                 jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
             });
         });
-}
+}x
