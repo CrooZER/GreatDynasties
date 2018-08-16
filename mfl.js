@@ -51,7 +51,7 @@ console.log('showing bets');
         url : "http://206.189.127.27/api/bets/?format=json",
          dataType: "jsonp",
         async: true,
-        success : function (data) {
+        complete : function (data) {
         console.log(data, 'success');
             data.each(function(item){
                 console.log(item);
