@@ -43,7 +43,8 @@ jQuery("a").each(function(index){
          dataType: "jsonp"
     }).done( function (data) {
             data.each(function(item){
-                $('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
+                console.log(item);
+                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
             });
         });
 
