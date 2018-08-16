@@ -20,20 +20,7 @@ for (var i=0; i<NFL_PLAYER_DATA.players.length; i++){
 $(document).ready(
 
 function(){
-    function showBets(){
-console.log('showing bets');
-    jQuery.ajax({
-        url : "http://206.189.127.27/api/bets/?format=json",
-         dataType: "jsonp",
-        async: true
-    }).done( function (data) {
-        console.log(data);
-            data.each(function(item){
-                console.log(item);
-                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
-            });
-        });
-}
+
 
 
 jQuery("a").each(function(index){
@@ -58,3 +45,17 @@ showBets();
 
 });
   
+    function showBets(){
+console.log('showing bets');
+    jQuery.ajax({
+        url : "http://206.189.127.27/api/bets/?format=json",
+         dataType: "jsonp",
+        async: true
+    }).done( function (data) {
+        console.log(data);
+            data.each(function(item){
+                console.log(item);
+                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
+            });
+        });
+}
