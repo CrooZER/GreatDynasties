@@ -58,6 +58,10 @@ console.log('showing bets');
                 jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
             });
         }
+        ,
+    error: function(xhr, status, error) {
+        console.log(status + '; ' + error);
+    }
     }).done( function (data) {
         console.log(data);
             data.each(function(item){
