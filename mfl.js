@@ -31,7 +31,7 @@ function() {
             success: function (data) {
                 // Replace the div's content with the page method's return.
                 data.each(function(item){
-                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td><td>"+item.description+"</td></tr>");
+                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td><td>"+item.note+"</td></tr>");
             });
             },
 
