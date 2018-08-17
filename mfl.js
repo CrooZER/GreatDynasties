@@ -19,46 +19,45 @@ for (var i=0; i<NFL_PLAYER_DATA.players.length; i++){
 
 $(document).ready(
 
-function(){
+function() {
 
+    $(document).ready(function () {
 
-
-jQuery("a").each(function(index){
-	    	var href = jQuery(this).prop("href");
-	    	if (href && href.indexOf){
-		    	var idx1 = href.indexOf("/player?");
-		    	var idx2 = href.indexOf("&P=");
-
-		    	if (idx1 != -1 && idx2 > idx1){
-		    		var mflId = href.substring(idx2 + "&P=".length);
-		    		while (mflId.length > 0 && mflId[0] == '0'){
-		    			mflId = mflId.substring(1);
-		    		}
-		    		 if (MAP_MFL_FP['nfl'][mflId]){
-		    		 	var fpId = MAP_MFL_FP['nfl'][mflId];
-		    		 	jQuery(this).addClass('fp-player-link').addClass('fp-id-' + fpId);
-		    		 }
-		    	} 
-	    	}
-	    });
-showBets();
-
-});
-  
-    function showBets(){
-console.log('showing bets');
-jQuery.ajax({
-        url : "http://206.189.127.27/api/bets/?format=json",
-
-crossOrigin:true,
+        jQuery.ajax({
+            url: "http://206.189.127.27/api/bets",
+            async: true,
+            crossDomain: true,
+            dataType: 'jsonp',
             success: function (msg) {
                 // Replace the div's content with the page method's return.
                 console.log('success', msg);
             },
 
 
-    error: function(xhr, status, error) {
-        console.log('error', status + '; ' + error);
-    }
-    });
-}
+            error: function (xhr, status, error) {
+                console.log('error', status + '; ' + error);
+            }
+        });
+
+        jQuery("a").each(function (index) {
+            var href = jQuery(this).prop("href");
+            if (href && href.indexOf) {
+                var idx1 = href.indexOf("/player?");
+                var idx2 = href.indexOf("&P=");
+
+                if (idx1 != -1 && idx2 > idx1) {
+                    var mflId = href.substring(idx2 + "&P=".length);
+                    while (mflId.length > 0 && mflId[0] == '0') {
+                        mflId = mflId.substring(1);
+                    }
+                    if (MAP_MFL_FP['nfl'][mflId]) {
+                        var fpId = MAP_MFL_FP['nfl'][mflId];
+                        jQuery(this).addClass('fp-player-link').addClass('fp-id-' + fpId);
+                    }
+                }
+            }
+        });
+
+
+    })
+});
