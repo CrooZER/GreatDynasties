@@ -47,26 +47,18 @@ showBets();
   
     function showBets(){
 console.log('showing bets');
-    jQuery.ajax({
+jQuery.ajax({
         url : "http://206.189.127.27/api/bets/?format=json",
 
-        async: true,
-        contentType: "application/json; charset=utf-8",
-            dataType: "jsonp",
+crossOrigin:true,
             success: function (msg) {
                 // Replace the div's content with the page method's return.
-                alert('dfgd', msg);
+                console.log('success', msg);
             },
-        complete : function (data) {
-        console.log(data, 'success');
-//            data.each(function(item){
-//                console.log(item);
-//                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td></tr>");
-//            });
-        }
-        ,
+
+
     error: function(xhr, status, error) {
-        console.log(status + '; ' + error);
+        console.log('error', status + '; ' + error);
     }
-    })
+    });
 }
