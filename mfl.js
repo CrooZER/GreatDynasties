@@ -28,9 +28,11 @@ function() {
             async: true,
             crossDomain: true,
             dataType: 'jsonp',
-            success: function (msg) {
+            success: function (data) {
                 // Replace the div's content with the page method's return.
-                console.log('success', msg);
+                data.each(function(item){
+                jQuery('#bets').append("<tr><td>"+item.id+"</td><td>"+item.title+"</td><td>"+item.first_side_bet+"</td><td>"+item.second_side_bet+"</td><td>"+item.description+"</td></tr>");
+            });
             },
 
 
